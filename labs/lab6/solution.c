@@ -30,11 +30,11 @@
 #define GPIO_PORTF_AMSEL_R      (*((volatile unsigned long *)0x40025528))
 #define GPIO_PORTF_PCTL_R       (*((volatile unsigned long *)0x4002552C))
 #define SYSCTL_RCGC2_R          (*((volatile unsigned long *)0x400FE108))
-#define GPIO_PORTF_LOCK_R 			(*((volatile unsigned long *)0x4C4F434B)) //unlock Port F
-#define GPIO_PORTF_CR_R 				(*((volatile unsigned long *)0x1F)) //Allow changes to PF0-PF4
-#define GPIO_PORTF_PF2					(*((volatile unsigned long *)0x40025010)) //Port F Pin 2
-#define GPIO_PORTF_PF4					(*((volatile unsigned long *)0x40025040)) //Port F Pin 4
-//#define SYSCTL_RCGC2_R     			0x00000020  // port F Clock Gating Control
+#define GPIO_PORTF_LOCK_R 	(*((volatile unsigned long *)0x4C4F434B)) //unlock Port F
+#define GPIO_PORTF_CR_R 	(*((volatile unsigned long *)0x1F)) //Allow changes to PF0-PF4
+#define GPIO_PORTF_PF2		(*((volatile unsigned long *)0x40025010)) //Port F Pin 2
+#define GPIO_PORTF_PF4		(*((volatile unsigned long *)0x40025040)) //Port F Pin 4
+//#define SYSCTL_RCGC2_R     	0x00000020  // port F Clock Gating Control
 
 //variables
 unsigned long In; //Input from PF4
@@ -51,7 +51,7 @@ void PortF_init(void) {
 	delay = SYSCTL_RCGC2_R; //delay to let the clock stabilize
 	GPIO_PORTF_LOCK_R = 0x4C4F434B;
 	GPIO_PORTF_CR_R = 0x00;
-  GPIO_PORTF_AMSEL_R = 0x00;
+  	GPIO_PORTF_AMSEL_R = 0x00;
 	GPIO_PORTF_PCTL_R = 0x00000000;
 	GPIO_PORTF_DIR_R = 0x0E;
 	GPIO_PORTF_AFSEL_R = 0x00;
